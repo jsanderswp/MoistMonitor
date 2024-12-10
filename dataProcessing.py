@@ -5,8 +5,8 @@ import serial
 # twilio implementation
 from twilio.rest import Client
 
-account_sid = 'your_account_sid'
-auth_token = 'your_auth_token'
+account_sid = 'AC09190c2e1005f08c38b13b61d2f3fab2'
+auth_token = '[AuthToken]'
 client = Client(account_sid, auth_token)
 
 threshold = 300  # Example moisture threshold
@@ -18,10 +18,9 @@ def check_moisture_and_notify():
             try:
                 value = int(row[0])  # Adjust index if more columns exist
                 if value < threshold:
-                    message = client.messages.create(
-                        body="Your plant needs watering!",
-                        from_="+123456789",  # Twilio phone number
-                        to="+7143217225"  # User's phone number
+                    message = client.messages.create(messaging_service_sid='MG5f417675f7ec606293dce1bd89ac59eb',
+                    body='Water your plant!',
+                    to='+15052695439'
                     )
                     print(f"Message sent: {message.sid}")
                     break
