@@ -44,5 +44,8 @@ def read_serial_data():
                 writer.writerow(rows)
                 f.flush()
 
+def main():
+    read_serial_data()
+    check_moisture_and_notify()
 
-
+main()
