@@ -21,13 +21,14 @@ def check_moisture_and_notify():
                     message = client.messages.create(
                         body="Your plant needs watering!",
                         from_="+123456789",  # Twilio phone number
-                        to="+987654321"  # User's phone number
+                        to="+7143217225"  # User's phone number
                     )
                     print(f"Message sent: {message.sid}")
+                    break
             except ValueError:
                 pass
-
-check_moisture_and_notify()
+                
+        
 
 # function: read_serial data
 
@@ -36,14 +37,13 @@ def read_serial_data():
     with open("moistureData.csv", "a+") as f:
         writer = csv.writer(f, delimiter=',')
 
-        while True:
+        for i in range(100):
             s = ser.readline().decode()
             if s != "":
                 rows = [int(x) for x in s.split(',')]
                 print(rows)
                 writer.writerow(rows)
                 f.flush()
-#left to do: iterate thru CSV, check for moisture values below threshold, send twilio message if so
 
 
 
