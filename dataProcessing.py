@@ -2,10 +2,6 @@ import csv
 import time
 import serial
 
-import csv
-import time
-import serial
-
 def read_serial_data():
     ser = serial.Serial('/dev/cu.usbmodem101', timeout=1)
     with open("moistureData.csv", "a+") as f:
