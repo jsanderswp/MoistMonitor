@@ -19,7 +19,7 @@ def check_moisture_and_notify():
                 value = int(row[0])  # Adjust index if more columns exist
                 if value < threshold:
                     message = client.messages.create(messaging_service_sid='MG5f417675f7ec606293dce1bd89ac59eb',
-                    body='This is being sent thru Python!',
+                    body='Water your plant!',
                     to='+18777804236'
                     )
                     print(f"Message sent: {message.sid}")
