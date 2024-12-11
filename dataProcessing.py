@@ -32,7 +32,7 @@ def check_moisture_and_notify():
 # function: read_serial data
 
 def read_serial_data():
-    ser = serial.Serial('/dev/cu.usbmodem1101', timeout=1)
+    ser = serial.Serial('/dev/cu.usbmodem1101', 115200, timeout=1)
     with open("moistureData.csv", "a+") as f:
         writer = csv.writer(f, delimiter=',')
 
@@ -46,5 +46,4 @@ def read_serial_data():
 def main():
     read_serial_data()
     check_moisture_and_notify()
-    print("This is running")
 main()
